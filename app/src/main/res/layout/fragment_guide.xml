@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuideFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <android.widget.Button
+                android:id="@+id/btn_cotton"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Cotton"
+                android:textSize="20sp"
+                android:backgroundTint="#B88DED"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white" />
+
+            <android.widget.Button
+                android:id="@+id/btn_linen"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Linen"
+                android:textSize="20sp"
+                android:backgroundTint="#EDB08D"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_wool"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Wool"
+                android:textSize="20sp"
+                android:backgroundTint="#ED8D8D"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_silk"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Silk"
+                android:textSize="20sp"
+                android:backgroundTint="#EDCF8D"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_denim"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Denim"
+                android:textSize="20sp"
+                android:backgroundTint="#8DED93"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_synthetic"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Synthetic Fabrics"
+                android:textSize="20sp"
+                android:backgroundTint="#938DED"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_delicates"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Delicates n Lingerie"
+                android:textSize="20sp"
+                android:backgroundTint="#C5ED8D"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_athletic"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Athletic Wear"
+                android:textSize="20sp"
+                android:backgroundTint="#B88DED"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_heavy"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Heavy Fabrics"
+                android:textSize="20sp"
+                android:backgroundTint="#ED8D8D"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_mixed"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="Mixed Fabrics n Blends"
+                android:textSize="20sp"
+                android:backgroundTint="#ED8DDA"
+                android:background="@drawable/washingguidebuttons"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

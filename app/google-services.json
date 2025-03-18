@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "303281445730",
+    "firebase_url": "https://laundrip-7dc79-default-rtdb.firebaseio.com",
+    "project_id": "laundrip-7dc79",
+    "storage_bucket": "laundrip-7dc79.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303281445730:android:1cfa163064b1574341aa3b",
+        "android_client_info": {
+          "package_name": "com.example.laundrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "303281445730-odseajk4mhrs2juvujgacqndsli841kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.laundrip",
+            "certificate_hash": "c1aa0504f8aa373409881186d6571fe0277f9800"
+          }
+        },
+        {
+          "client_id": "303281445730-qs28lq278cnslnfds83r62ag40pl9ca6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArN99SFs7CLTGmapvZkVt0VphImdBa0Xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303281445730-qs28lq278cnslnfds83r62ag40pl9ca6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

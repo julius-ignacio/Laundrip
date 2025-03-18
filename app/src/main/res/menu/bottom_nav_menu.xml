@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Home"
+        android:icon="@drawable/home_1_svgrepo_com"
+        android:title="" />
+    <item
+        android:id="@+id/Guide"
+        android:icon="@drawable/chat_round_like_svgrepo_com"
+        android:title="" />
+    <item
+        android:id="@+id/Chatbot"
+        android:icon="@drawable/chat_round_like_svgrepo_com"
+        android:title="" />
+    <item
+        android:id="@+id/Account"
+        android:icon="@drawable/chat_round_like_svgrepo_com"
+        android:title="" />
+</menu>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment">
+
+
+
+
+    <!-- TODO: Update blank fragment layout -->
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+
+
+      <!--    TITLE     -->
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:layout_marginLeft="10dp"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:text="Today's weather is perfect to wash your clothes!" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--      WIDGET WEATHER CARD-->
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/constraintLayout"
+          android:layout_gravity="center"
+          android:background="@drawable/widgetrounded"
+          android:layout_width="400dp"
+          android:layout_height="250dp">
+
+          <TextView
+              android:id="@+id/temperature"
+              android:text="36C"
+              android:textSize="30sp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="190dp"
+              android:layout_marginLeft="300dp"
+              app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+              app:layout_constraintTop_toTopOf="@id/constraintLayout"
+              app:layout_constraintLeft_toLeftOf="@id/constraintLayout"
+              app:layout_constraintRight_toRightOf="@id/constraintLayout"/>
+
+          <TextView
+              android:layout_width="90dp"
+              android:layout_height="90dp"
+
+              android:layout_marginRight="250dp"
+              android:layout_marginBottom="130dp"
+
+              app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+              app:layout_constraintTop_toTopOf="@id/constraintLayout"
+              app:layout_constraintLeft_toLeftOf="@id/constraintLayout"
+              app:layout_constraintRight_toRightOf="@id/constraintLayout"
+
+              android:background="@drawable/home_1_svgrepo_com"/>
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </LinearLayout>
+
+</FrameLayout>
