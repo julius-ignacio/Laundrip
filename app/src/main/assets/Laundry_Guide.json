@@ -1,0 +1,294 @@
+{
+  "fabrics": [
+    {
+      "name": "Cotton",
+      "washing_instructions": {
+        "machine_washable": true,
+        "water_temperature": "Warm",
+        "cycle_type": "Normal",
+        "recommended_detergent": "Regular",
+        "use_fabric_softener": true,
+        "can_be_bleached": true
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Machine Dry",
+        "heat_settings": "Medium",
+        "special_handling": "Remove promptly to reduce wrinkles"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "Medium",
+        "steam": true,
+        "prevent_shrinking_fading": "Avoid high heat, wash in cold water"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Sweat", "Oil", "Ink", "Coffee"],
+        "best_removal_techniques": "Pre-treat with stain remover before washing"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Fold",
+        "special_storage_tips": "Keep in a dry place to prevent mildew"
+      }
+    },
+    {
+      "name": "Linen",
+      "washing_instructions": {
+        "machine_washable": true,
+        "water_temperature": "Cold",
+        "cycle_type": "Gentle",
+        "recommended_detergent": "Mild",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Air Dry",
+        "heat_settings": "Low",
+        "special_handling": "Dry flat to prevent wrinkles"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "High",
+        "steam": true,
+        "prevent_shrinking_fading": "Iron while damp for best results"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Wine", "Oil", "Ink"],
+        "best_removal_techniques": "Use mild soap and soak in cold water"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Hang",
+        "special_storage_tips": "Store in a cool, dry place"
+      }
+    },
+    {
+      "name": "Wool",
+      "washing_instructions": {
+        "machine_washable": false,
+        "water_temperature": "Cold",
+        "cycle_type": "Hand Wash",
+        "recommended_detergent": "Mild",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Air Dry",
+        "heat_settings": "None",
+        "special_handling": "Lay flat to dry to maintain shape"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "Low",
+        "steam": true,
+        "prevent_shrinking_fading": "Avoid high heat and agitation"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Sweat", "Dirt"],
+        "best_removal_techniques": "Blot stains with cold water, avoid rubbing"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Fold",
+        "special_storage_tips": "Use moth repellents when storing"
+      }
+    },
+    {
+      "name": "Silk",
+      "washing_instructions": {
+        "machine_washable": false,
+        "water_temperature": "Cold",
+        "cycle_type": "Hand Wash",
+        "recommended_detergent": "Mild",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Air Dry",
+        "heat_settings": "None",
+        "special_handling": "Avoid direct sunlight to prevent fading"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "Low",
+        "steam": false,
+        "prevent_shrinking_fading": "Use a cloth between iron and fabric"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Oil", "Makeup"],
+        "best_removal_techniques": "Use cold water and mild detergent"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Hang",
+        "special_storage_tips": "Store in breathable fabric bags"
+      }
+    },
+    {
+      "name": "Denim",
+      "washing_instructions": {
+        "machine_washable": true,
+        "water_temperature": "Cold",
+        "cycle_type": "Normal",
+        "recommended_detergent": "Regular",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Air Dry",
+        "heat_settings": "Low",
+        "special_handling": "Turn inside out before washing to prevent fading"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "Medium",
+        "steam": true,
+        "prevent_shrinking_fading": "Avoid excessive heat and frequent washing"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Dirt", "Ink"],
+        "best_removal_techniques": "Spot clean with mild detergent"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Fold",
+        "special_storage_tips": "Keep in a cool, dry place"
+      }
+    },
+    {
+      "name": "Synthetic Fabrics",
+      "washing_instructions": {
+        "machine_washable": true,
+        "water_temperature": "Warm",
+        "cycle_type": "Normal",
+        "recommended_detergent": "Regular",
+        "use_fabric_softener": true,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Machine Dry",
+        "heat_settings": "Low",
+        "special_handling": "Remove quickly to prevent wrinkles"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "Low",
+        "steam": false,
+        "prevent_shrinking_fading": "Avoid high heat"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Sweat", "Oil", "Ink"],
+        "best_removal_techniques": "Use mild detergent and blot stains"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Fold",
+        "special_storage_tips": "Avoid prolonged exposure to direct sunlight"
+      }
+    },
+    {
+      "name": "Delicates & Lingerie",
+      "washing_instructions": {
+        "machine_washable": false,
+        "water_temperature": "Cold",
+        "cycle_type": "Hand Wash",
+        "recommended_detergent": "Mild",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Air Dry",
+        "heat_settings": "None",
+        "special_handling": "Lay flat to maintain shape"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "None",
+        "steam": false,
+        "prevent_shrinking_fading": "Avoid wringing to prevent damage"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Sweat", "Makeup"],
+        "best_removal_techniques": "Gently rub with mild detergent"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Fold",
+        "special_storage_tips": "Use a fabric bag for protection"
+      }
+    },
+    {
+      "name": "Athletic Wear",
+      "washing_instructions": {
+        "machine_washable": true,
+        "water_temperature": "Cold",
+        "cycle_type": "Gentle",
+        "recommended_detergent": "Mild",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Air Dry",
+        "heat_settings": "None",
+        "special_handling": "Hang to dry to avoid fabric damage"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "None",
+        "steam": false,
+        "prevent_shrinking_fading": "Wash inside out to preserve elasticity"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Sweat", "Mud"],
+        "best_removal_techniques": "Soak in vinegar before washing"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Fold",
+        "special_storage_tips": "Store in a breathable space"
+      }
+    },
+    {
+      "name": "Heavy Fabrics",
+      "washing_instructions": {
+        "machine_washable": true,
+        "water_temperature": "Warm",
+        "cycle_type": "Normal",
+        "recommended_detergent": "Regular",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Machine Dry",
+        "heat_settings": "High",
+        "special_handling": "Shake out before drying to prevent wrinkles"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "Medium",
+        "steam": true,
+        "prevent_shrinking_fading": "Avoid excessive heat exposure"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Dirt", "Grease"],
+        "best_removal_techniques": "Use a heavy-duty detergent"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Fold",
+        "special_storage_tips": "Store flat to prevent misshaping"
+      }
+    },
+    {
+      "name": "Mixed Fabrics & Blends",
+      "washing_instructions": {
+        "machine_washable": true,
+        "water_temperature": "Warm",
+        "cycle_type": "Gentle",
+        "recommended_detergent": "Mild",
+        "use_fabric_softener": false,
+        "can_be_bleached": false
+      },
+      "drying_instructions": {
+        "air_dry_or_machine_dry": "Machine Dry",
+        "heat_settings": "Medium",
+        "special_handling": "Read care label for specific instructions"
+      },
+      "ironing_maintenance": {
+        "iron_temperature": "Low",
+        "steam": true,
+        "prevent_shrinking_fading": "Wash in cold water to prevent damage"
+      },
+      "stain_removal_tips": {
+        "common_stains": ["Sweat", "Oil"],
+        "best_removal_techniques": "Test stain remover on a small area first"
+      },
+      "storage_tips": {
+        "fold_or_hang": "Depends on the blend",
+        "special_storage_tips": "Store in a cool, dry place"
+      }
+    }
+  ]
+}

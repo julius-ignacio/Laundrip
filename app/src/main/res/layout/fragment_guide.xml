@@ -21,7 +21,7 @@
                 android:layout_height="80dp"
                 android:text="Cotton"
                 android:textSize="20sp"
-                android:backgroundTint="#B88DED"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white" />
 
@@ -31,7 +31,7 @@
                 android:layout_height="80dp"
                 android:text="Linen"
                 android:textSize="20sp"
-                android:backgroundTint="#EDB08D"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -42,7 +42,7 @@
                 android:layout_height="80dp"
                 android:text="Wool"
                 android:textSize="20sp"
-                android:backgroundTint="#ED8D8D"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -53,7 +53,7 @@
                 android:layout_height="80dp"
                 android:text="Silk"
                 android:textSize="20sp"
-                android:backgroundTint="#EDCF8D"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -64,7 +64,7 @@
                 android:layout_height="80dp"
                 android:text="Denim"
                 android:textSize="20sp"
-                android:backgroundTint="#8DED93"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -75,7 +75,7 @@
                 android:layout_height="80dp"
                 android:text="Synthetic Fabrics"
                 android:textSize="20sp"
-                android:backgroundTint="#938DED"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -86,7 +86,7 @@
                 android:layout_height="80dp"
                 android:text="Delicates n Lingerie"
                 android:textSize="20sp"
-                android:backgroundTint="#C5ED8D"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -97,7 +97,7 @@
                 android:layout_height="80dp"
                 android:text="Athletic Wear"
                 android:textSize="20sp"
-                android:backgroundTint="#B88DED"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -108,7 +108,7 @@
                 android:layout_height="80dp"
                 android:text="Heavy Fabrics"
                 android:textSize="20sp"
-                android:backgroundTint="#ED8D8D"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
@@ -119,7 +119,7 @@
                 android:layout_height="80dp"
                 android:text="Mixed Fabrics n Blends"
                 android:textSize="20sp"
-                android:backgroundTint="#ED8DDA"
+                android:backgroundTint="#488AFF"
                 android:background="@drawable/washingguidebuttons"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp"/>
