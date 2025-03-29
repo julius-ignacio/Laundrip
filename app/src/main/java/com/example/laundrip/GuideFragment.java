@@ -93,53 +93,43 @@ public class GuideFragment extends Fragment {
         mixedfab = view.findViewById(R.id.btn_mixed);
 
         cotton.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to cotton page", Toast.LENGTH_SHORT).show();
             openDetailsFragment("Cotton");
                 });
 
         linen.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to linen page", Toast.LENGTH_SHORT).show();
             openDetailsFragment("linen");
         });
 
         wool.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to wool page", Toast.LENGTH_SHORT).show();
             openDetailsFragment("wool");
         });
 
         silk.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to silk page", Toast.LENGTH_SHORT).show();
             openDetailsFragment("silk");
         });
 
         denim.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to denim page", Toast.LENGTH_SHORT).show();
             openDetailsFragment("denim");
         });
 
         synetheticFiber.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to synetheticFiber page", Toast.LENGTH_SHORT).show();
-            openDetailsFragment("synetheticFiber");
+            openDetailsFragment("Synthetic Fabrics");
         });
 
         delicates.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to delicates page", Toast.LENGTH_SHORT).show();
-            openDetailsFragment("delicates");
+            openDetailsFragment("Delicates & Lingerie");
         });
 
         athletic.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to athletic page", Toast.LENGTH_SHORT).show();
-            openDetailsFragment("athletic");
+            openDetailsFragment("Athletic Wear");
         });
 
         heavyfab.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to heavyfab page", Toast.LENGTH_SHORT).show();
-            openDetailsFragment("heavyfab");
+            openDetailsFragment("Heavy Fabrics");
         });
 
         mixedfab.setOnClickListener(v ->{
-            Toast.makeText(requireContext(), "Directing to mixedfab page", Toast.LENGTH_SHORT).show();
-            openDetailsFragment("mixedfab");
+            openDetailsFragment("Mixed Fabrics & Blends");
         });
 
 

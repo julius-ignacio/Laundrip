@@ -27,7 +27,7 @@ public class FabricAdapter extends RecyclerView.Adapter<FabricAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Fabric fabric = fabricList.get(position);
         holder.nameTextView.setText(fabric.getName());
-        holder.washingTextView.setText("Wash: " + fabric.getWashingInstructions().getWaterTemperature());
+        holder.washingTextView.setText(fabric.getDryingInstructions().getHeatSettings());
         holder.dryingTextView.setText("Dry: " + fabric.getDryingInstructions().getHeatSettings());
     }
 
