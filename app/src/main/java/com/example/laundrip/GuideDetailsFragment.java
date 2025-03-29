@@ -35,6 +35,7 @@ public class GuideDetailsFragment extends Fragment {
             textView.setText("Details about " + item);
         }
 
+
         return view;
     }
 }

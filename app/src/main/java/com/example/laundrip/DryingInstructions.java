@@ -5,15 +5,6 @@ public class DryingInstructions {
     private String heat_settings;
     private String special_handling;
 
-    public String getAirDryOrMachineDry() {
-        return air_dry_or_machine_dry;
-    }
-
-    public String getHeatSettings() {
-        return heat_settings;
-    }
-
-    public String getSpecialHandling() {
-        return special_handling;
-    }
+    public String getHeatSettings() { return heat_settings; }
+    public String getSpecialHandling() { return special_handling; }
 }

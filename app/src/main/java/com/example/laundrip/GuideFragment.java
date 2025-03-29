@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +37,13 @@ public class GuideFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+
+
+    Button cotton, linen, wool, silk, denim, synetheticFiber,
+            delicates, athletic, heavyfab, mixedfab;
+
 
     public GuideFragment() {
         // Required empty public constructor
@@ -71,72 +81,78 @@ public class GuideFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_guide, container, false);
 
-        view.findViewById(R.id.btn_cotton).setOnClickListener(v -> loadFabricData("Cotton"));
-        view.findViewById(R.id.btn_linen).setOnClickListener(v -> loadFabricData("Linen"));
-        view.findViewById(R.id.btn_wool).setOnClickListener(v -> loadFabricData("Wool"));
-        view.findViewById(R.id.btn_silk).setOnClickListener(v -> loadFabricData("Silk"));
-        view.findViewById(R.id.btn_denim).setOnClickListener(v -> loadFabricData("Denim"));
-        view.findViewById(R.id.btn_synthetic).setOnClickListener(v -> loadFabricData("Synthetic Fabrics"));
-        view.findViewById(R.id.btn_delicates).setOnClickListener(v -> loadFabricData("Delicates & Lingerie"));
-        view.findViewById(R.id.btn_athletic).setOnClickListener(v -> loadFabricData("Athletic Wear"));
-        view.findViewById(R.id.btn_heavy).setOnClickListener(v -> loadFabricData("Heavy Fabrics"));
-        view.findViewById(R.id.btn_mixed).setOnClickListener(v -> loadFabricData("Mixed Fabrics & Blends"));
+        cotton = view.findViewById(R.id.btn_cotton);
+        linen = view.findViewById(R.id.btn_linen);
+        wool = view.findViewById(R.id.btn_wool);
+        silk = view.findViewById(R.id.btn_silk);
+        denim = view.findViewById(R.id.btn_denim);
+        synetheticFiber = view.findViewById(R.id.btn_synthetic);
+        delicates = view.findViewById(R.id.btn_delicates);
+        athletic = view.findViewById(R.id.btn_athletic);
+        heavyfab = view.findViewById(R.id.btn_heavy);
+        mixedfab = view.findViewById(R.id.btn_mixed);
+
+        cotton.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to cotton page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("Cotton");
+                });
+
+        linen.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to linen page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("linen");
+        });
+
+        wool.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to wool page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("wool");
+        });
+
+        silk.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to silk page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("silk");
+        });
+
+        denim.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to denim page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("denim");
+        });
+
+        synetheticFiber.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to synetheticFiber page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("synetheticFiber");
+        });
+
+        delicates.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to delicates page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("delicates");
+        });
+
+        athletic.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to athletic page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("athletic");
+        });
+
+        heavyfab.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to heavyfab page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("heavyfab");
+        });
+
+        mixedfab.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Directing to mixedfab page", Toast.LENGTH_SHORT).show();
+            openDetailsFragment("mixedfab");
+        });
+
 
         return view;
     }
 
+private void openDetailsFragment(String item) {
+    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+    transaction.replace(R.id.frameLayout, GuideDetailsFragment.newInstance(item));
+    transaction.addToBackStack(null); // Allow going back
+    transaction.commit();
+}
 
-    private String loadJsonFromAssets() {
-        String json = null;
-        try {
-            InputStream inputStream = getActivity().getAssets().open("Laundry_Guide.json");
-            int size = inputStream.available();
-            byte[] buffer = new byte[size];
-            inputStream.read(buffer);
-            inputStream.close();
-            json = new String(buffer, StandardCharsets.UTF_8);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return json;
-    }
-
-    private JSONObject getFabricData(String fabricName) {
-        String jsonString = loadJsonFromAssets();
-        try {
-            JSONObject jsonObject = new JSONObject(jsonString);
-            JSONArray fabricsArray = jsonObject.getJSONArray("fabrics");
-
-            for (int i = 0; i < fabricsArray.length(); i++) {
-                JSONObject fabric = fabricsArray.getJSONObject(i);
-                if (fabric.getString("name").equalsIgnoreCase(fabricName)) {
-                    return fabric;
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-
-    private void loadFabricData(String fabricName) {
-        JSONObject fabricData = getFabricData(fabricName);
-        if (fabricData != null) {
-            // Update your UI here with the fabricData
-            // For example, you can update TextViews with washing instructions, drying instructions, etc.
-            try {
-                String washingInstructions = fabricData.getJSONObject("washing_instructions").toString();
-                String dryingInstructions = fabricData.getJSONObject("drying_instructions").toString();
-                // Update your TextViews or other UI elements with these instructions
-                Log.d(TAG, "Washing Instructions: " + washingInstructions);
-                Log.d(TAG, "Drying Instructions: " + dryingInstructions);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
 
 }
