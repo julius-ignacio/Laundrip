@@ -1,12 +1,23 @@
 package com.example.laundrip;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +69,74 @@ public class GuideFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_guide, container, false);
+        View view = inflater.inflate(R.layout.fragment_guide, container, false);
+
+        view.findViewById(R.id.btn_cotton).setOnClickListener(v -> loadFabricData("Cotton"));
+        view.findViewById(R.id.btn_linen).setOnClickListener(v -> loadFabricData("Linen"));
+        view.findViewById(R.id.btn_wool).setOnClickListener(v -> loadFabricData("Wool"));
+        view.findViewById(R.id.btn_silk).setOnClickListener(v -> loadFabricData("Silk"));
+        view.findViewById(R.id.btn_denim).setOnClickListener(v -> loadFabricData("Denim"));
+        view.findViewById(R.id.btn_synthetic).setOnClickListener(v -> loadFabricData("Synthetic Fabrics"));
+        view.findViewById(R.id.btn_delicates).setOnClickListener(v -> loadFabricData("Delicates & Lingerie"));
+        view.findViewById(R.id.btn_athletic).setOnClickListener(v -> loadFabricData("Athletic Wear"));
+        view.findViewById(R.id.btn_heavy).setOnClickListener(v -> loadFabricData("Heavy Fabrics"));
+        view.findViewById(R.id.btn_mixed).setOnClickListener(v -> loadFabricData("Mixed Fabrics & Blends"));
+
+        return view;
     }
+
+
+    private String loadJsonFromAssets() {
+        String json = null;
+        try {
+            InputStream inputStream = getActivity().getAssets().open("Laundry_Guide.json");
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+            inputStream.read(buffer);
+            inputStream.close();
+            json = new String(buffer, StandardCharsets.UTF_8);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return json;
+    }
+
+    private JSONObject getFabricData(String fabricName) {
+        String jsonString = loadJsonFromAssets();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONArray fabricsArray = jsonObject.getJSONArray("fabrics");
+
+            for (int i = 0; i < fabricsArray.length(); i++) {
+                JSONObject fabric = fabricsArray.getJSONObject(i);
+                if (fabric.getString("name").equalsIgnoreCase(fabricName)) {
+                    return fabric;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+    private void loadFabricData(String fabricName) {
+        JSONObject fabricData = getFabricData(fabricName);
+        if (fabricData != null) {
+            // Update your UI here with the fabricData
+            // For example, you can update TextViews with washing instructions, drying instructions, etc.
+            try {
+                String washingInstructions = fabricData.getJSONObject("washing_instructions").toString();
+                String dryingInstructions = fabricData.getJSONObject("drying_instructions").toString();
+                // Update your TextViews or other UI elements with these instructions
+                Log.d(TAG, "Washing Instructions: " + washingInstructions);
+                Log.d(TAG, "Drying Instructions: " + dryingInstructions);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }
