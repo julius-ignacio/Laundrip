@@ -3,12 +3,12 @@
     {
       "name": "Cotton",
       "washing_instructions": {
-        "machine_washable": true,
+        "machine_washable": "true",
         "water_temperature": "Warm",
         "cycle_type": "Normal",
         "recommended_detergent": "Regular",
-        "use_fabric_softener": true,
-        "can_be_bleached": true
+        "use_fabric_softener": "true",
+        "can_be_bleached": "true"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Machine Dry",
@@ -17,7 +17,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "Medium",
-        "steam": true,
+        "steam": "true",
         "prevent_shrinking_fading": "Avoid high heat, wash in cold water"
       },
       "stain_removal_tips": {
@@ -29,27 +29,15 @@
         "special_storage_tips": "Keep in a dry place to prevent mildew"
       }
     },
-
-
-
-
-
-
-
-
-
-
-
-
     {
       "name": "Linen",
       "washing_instructions": {
-        "machine_washable": true,
+        "machine_washable": "true",
         "water_temperature": "Cold",
         "cycle_type": "Gentle",
         "recommended_detergent": "Mild",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Air Dry",
@@ -58,7 +46,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "High",
-        "steam": true,
+        "steam": "true",
         "prevent_shrinking_fading": "Iron while damp for best results"
       },
       "stain_removal_tips": {
@@ -73,12 +61,12 @@
     {
       "name": "Wool",
       "washing_instructions": {
-        "machine_washable": false,
+        "machine_washable": "false",
         "water_temperature": "Cold",
         "cycle_type": "Hand Wash",
         "recommended_detergent": "Mild",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Air Dry",
@@ -87,7 +75,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "Low",
-        "steam": true,
+        "steam": "true",
         "prevent_shrinking_fading": "Avoid high heat and agitation"
       },
       "stain_removal_tips": {
@@ -102,12 +90,12 @@
     {
       "name": "Silk",
       "washing_instructions": {
-        "machine_washable": false,
+        "machine_washable": "false",
         "water_temperature": "Cold",
         "cycle_type": "Hand Wash",
         "recommended_detergent": "Mild",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Air Dry",
@@ -116,7 +104,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "Low",
-        "steam": false,
+        "steam": "false",
         "prevent_shrinking_fading": "Use a cloth between iron and fabric"
       },
       "stain_removal_tips": {
@@ -131,12 +119,12 @@
     {
       "name": "Denim",
       "washing_instructions": {
-        "machine_washable": true,
+        "machine_washable": "true",
         "water_temperature": "Cold",
         "cycle_type": "Normal",
         "recommended_detergent": "Regular",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Air Dry",
@@ -145,7 +133,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "Medium",
-        "steam": true,
+        "steam": "true",
         "prevent_shrinking_fading": "Avoid excessive heat and frequent washing"
       },
       "stain_removal_tips": {
@@ -160,12 +148,12 @@
     {
       "name": "Synthetic Fabrics",
       "washing_instructions": {
-        "machine_washable": true,
+        "machine_washable": "true",
         "water_temperature": "Warm",
         "cycle_type": "Normal",
         "recommended_detergent": "Regular",
-        "use_fabric_softener": true,
-        "can_be_bleached": false
+        "use_fabric_softener": "true",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Machine Dry",
@@ -174,7 +162,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "Low",
-        "steam": false,
+        "steam": "false",
         "prevent_shrinking_fading": "Avoid high heat"
       },
       "stain_removal_tips": {
@@ -189,12 +177,12 @@
     {
       "name": "Delicates & Lingerie",
       "washing_instructions": {
-        "machine_washable": false,
+        "machine_washable": "false",
         "water_temperature": "Cold",
         "cycle_type": "Hand Wash",
         "recommended_detergent": "Mild",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Air Dry",
@@ -203,7 +191,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "None",
-        "steam": false,
+        "steam": "false",
         "prevent_shrinking_fading": "Avoid wringing to prevent damage"
       },
       "stain_removal_tips": {
@@ -218,12 +206,12 @@
     {
       "name": "Athletic Wear",
       "washing_instructions": {
-        "machine_washable": true,
+        "machine_washable": "true",
         "water_temperature": "Cold",
         "cycle_type": "Gentle",
         "recommended_detergent": "Mild",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Air Dry",
@@ -232,7 +220,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "None",
-        "steam": false,
+        "steam": "false",
         "prevent_shrinking_fading": "Wash inside out to preserve elasticity"
       },
       "stain_removal_tips": {
@@ -247,12 +235,12 @@
     {
       "name": "Heavy Fabrics",
       "washing_instructions": {
-        "machine_washable": true,
+        "machine_washable": "true",
         "water_temperature": "Warm",
         "cycle_type": "Normal",
         "recommended_detergent": "Regular",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Machine Dry",
@@ -261,7 +249,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "Medium",
-        "steam": true,
+        "steam": "true",
         "prevent_shrinking_fading": "Avoid excessive heat exposure"
       },
       "stain_removal_tips": {
@@ -276,12 +264,12 @@
     {
       "name": "Mixed Fabrics & Blends",
       "washing_instructions": {
-        "machine_washable": true,
+        "machine_washable": "true",
         "water_temperature": "Warm",
         "cycle_type": "Gentle",
         "recommended_detergent": "Mild",
-        "use_fabric_softener": false,
-        "can_be_bleached": false
+        "use_fabric_softener": "false",
+        "can_be_bleached": "false"
       },
       "drying_instructions": {
         "air_dry_or_machine_dry": "Machine Dry",
@@ -290,7 +278,7 @@
       },
       "ironing_maintenance": {
         "iron_temperature": "Low",
-        "steam": true,
+        "steam": "true",
         "prevent_shrinking_fading": "Wash in cold water to prevent damage"
       },
       "stain_removal_tips": {

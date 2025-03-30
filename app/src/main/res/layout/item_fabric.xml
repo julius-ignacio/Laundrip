@@ -4,22 +4,185 @@
     android:orientation="vertical"
     android:padding="8dp">
 
+    <!-- Fabric Name -->
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:text="Cotton"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp"
+        android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/washingTextView"
-        android:layout_width="wrap_content"
+    <!-- Table Layout for Instructions -->
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+        android:stretchColumns="1"
+        android:paddingBottom="16dp">
 
-    <TextView
-        android:id="@+id/dryingTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+        <!-- Washing Instructions -->
+        <TableRow>
+            <TextView
+                android:id="@+id/washingTextView"
+                android:textColor="@color/white"
+                android:background="#297ABC"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_height="wrap_content"
+                android:text="Washing Instructions"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_span="2"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Machine Washable:"/>
+
+            <TextView
+                android:id="@+id/machineWashableTextView"
+                android:text="Machine Washable:"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Water Temperature:"/>
+            <TextView android:id="@+id/waterTemperatureTextView" android:text="Water Temperature:"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Cycle Type:"/>
+            <TextView android:id="@+id/cycleTypeTextView" android:text="Cycle Type:"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Recommended Detergent:"/>
+            <TextView android:text="Recommended Detergent:" android:id="@+id/recommendedDetergentTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Use Fabric Softener:"/>
+            <TextView android:text="Use Fabric Softener:" android:id="@+id/useFabricSoftenerTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Can be Bleached:"/>
+            <TextView android:text="Can be Bleached:" android:id="@+id/canBeBleachedTextView"/>
+        </TableRow>
+
+        <!-- Drying Instructions -->
+        <TableRow>
+            <TextView
+                android:id="@+id/dryingTextView"
+                android:textColor="@color/white"
+                android:background="#297ABC"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Drying Instructions"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_span="2"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Air Dry or Machine Dry:"/>
+            <TextView android:text="Air Dry or Machine Dry:" android:id="@+id/airDryOrMachineDryTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Heat Settings:"/>
+            <TextView android:text="Heat Settings:" android:id="@+id/heatSettingsTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Special Handling:"/>
+            <TextView android:text="Special Handling:" android:id="@+id/specialHandlingTextView"/>
+        </TableRow>
+
+        <!-- Ironing Maintenance -->
+        <TableRow>
+            <TextView
+                android:textColor="@color/white"
+                android:background="#297ABC"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ironing Maintenance"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_span="2"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Iron Temperature:"/>
+            <TextView android:text="Iron Temperature:" android:id="@+id/ironTemperatureTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Steam:"/>
+            <TextView android:text="Steam:" android:id="@+id/steamTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Prevent Shrinking/Fading:"/>
+            <TextView android:text="Prevent Shrinking/Fading:" android:id="@+id/preventShrinkingTextView"/>
+        </TableRow>
+
+        <!-- Stain Removal Tips -->
+        <TableRow>
+            <TextView
+                android:textColor="@color/white"
+                android:background="#297ABC"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stain Removal Tips"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_span="2"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Common Stains:"/>
+            <TextView android:text="Common Stains:" android:id="@+id/commonStainsTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Best Removal Techniques:"/>
+            <TextView android:text="Best Removal Techniques:" android:id="@+id/bestRemovalTechniquesTextView"/>
+        </TableRow>
+
+        <!-- Storage Tips -->
+        <TableRow>
+            <TextView
+                android:textColor="@color/white"
+                android:background="#297ABC"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Storage Tips"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_span="2"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Fold or Hang:"/>
+            <TextView android:text="Fold or Hang:" android:id="@+id/foldOrHangTextView"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="Special Storage Tips:"/>
+            <TextView android:text="Special Storage Tips:" android:id="@+id/specialStorageTipsTextView"/>
+        </TableRow>
+    </TableLayout>
+
+
 </LinearLayout>
