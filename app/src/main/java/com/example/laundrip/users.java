@@ -3,12 +3,38 @@ package com.example.laundrip;
 
 public class users {
 
-    String userId, name, profile;
+    String userId;
+    String name;
+    String profile;
+    String address;
+    String password;
 
-    public users(String userId, String name, String profile) {
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+
+    public users(String userId, String name, String profile, String address, String password) {
         this.userId = userId;
         this.name = name;
         this.profile = profile;
+        this.address = address;
+        this.password = password;
     }
 
     public users(){}

@@ -28,14 +28,28 @@
         android:textStyle="bold"
         android:textColor="@color/black" />
 
+    <!-- Address -->
+    <TextView
+        android:id="@+id/AddressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:text="My Address"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#939393" />
+
+
 
     <!-- Buttons Section -->
+
     <Button
-        android:id="@+id/changeImageBtn"
+        android:id="@+id/changeAddressBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Change Profile Picture" />
+        android:text="Change Address" />
 
     <!-- Buttons Section -->
     <Button

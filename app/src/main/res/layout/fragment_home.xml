@@ -6,85 +6,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
+        <!-- Title -->
+        <TextView
+            android:id="@+id/weather_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Today's weather is perfect to wash your clothes!"
+            android:gravity="center" />
 
+        <!-- Temperature -->
+        <TextView
+            android:id="@+id/temperature_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:text="Temperature: --°C"
+            android:gravity="center" />
 
-    <!-- TODO: Update blank fragment layout -->
-  <LinearLayout
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
+        <!-- Weather Description -->
+        <TextView
+            android:id="@+id/weather_description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:text="Weather: --"
+            android:gravity="center" />
 
-
-
-      <!--    TITLE     -->
-      <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
-          android:layout_marginLeft="10dp"
-          android:textSize="20sp"
-          android:textStyle="bold"
-          android:text="Today's weather is perfect to wash your clothes!" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--      WIDGET WEATHER CARD-->
-
-      <androidx.constraintlayout.widget.ConstraintLayout
-          android:id="@+id/constraintLayout"
-          android:layout_gravity="center"
-          android:background="@drawable/widgetrounded"
-          android:layout_width="400dp"
-          android:layout_height="250dp">
-
-          <TextView
-              android:id="@+id/temperature"
-              android:text="36C"
-              android:textSize="30sp"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="190dp"
-              android:layout_marginLeft="300dp"
-              app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
-              app:layout_constraintTop_toTopOf="@id/constraintLayout"
-              app:layout_constraintLeft_toLeftOf="@id/constraintLayout"
-              app:layout_constraintRight_toRightOf="@id/constraintLayout"/>
-
-          <TextView
-              android:layout_width="90dp"
-              android:layout_height="90dp"
-
-              android:layout_marginRight="250dp"
-              android:layout_marginBottom="130dp"
-
-              app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
-              app:layout_constraintTop_toTopOf="@id/constraintLayout"
-              app:layout_constraintLeft_toLeftOf="@id/constraintLayout"
-              app:layout_constraintRight_toRightOf="@id/constraintLayout"
-
-              android:background="@drawable/home_1_svgrepo_com"/>
-
-      </androidx.constraintlayout.widget.ConstraintLayout>
-
-  </LinearLayout>
-
+    </LinearLayout>
 </FrameLayout>

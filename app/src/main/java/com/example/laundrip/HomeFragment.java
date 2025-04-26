@@ -1,64 +1,94 @@
 package com.example.laundrip;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextView temperatureText, weatherDescriptionText;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    // OpenWeather API Key (Replace with your API key)
+    private static final String API_KEY = "API HEREEE";
+    // Location for weather data (Replace with desired location)
+    private static final String LOCATION = "Guiguinto";
+    // OpenWeather API URL
+    private static final String API_URL = "https://api.openweathermap.org/data/2.5/weather?q=" + LOCATION + "&units=metric&appid=" + API_KEY;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Link UI components
+        temperatureText = view.findViewById(R.id.temperature_text);
+        weatherDescriptionText = view.findViewById(R.id.weather_description_text);
+
+        // Fetch and display weather data
+        fetchWeatherData();
+    }
+
+    private void fetchWeatherData() {
+        // Create a Volley request queue
+        RequestQueue queue = Volley.newRequestQueue(requireContext());
+
+        // Create a JSON Object request
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, API_URL, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            // Parse temperature
+                            JSONObject main = response.getJSONObject("main");
+                            double temperature = main.getDouble("temp");
+
+                            // Parse weather description
+                            JSONObject weather = response.getJSONArray("weather").getJSONObject(0);
+                            String description = weather.getString("description");
+
+                            // Update UI with weather data
+                            temperatureText.setText("Temperature: " + temperature + "°C");
+                            weatherDescriptionText.setText("Weather: " + description);
+
+                        } catch (JSONException e) {
+                            Log.e("Weather", "JSON Parsing error: " + e.getMessage());
+                            Toast.makeText(requireContext(), "Error parsing weather data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Weather", "Volley error: " + error.getMessage());
+                        Toast.makeText(requireContext(), "Error fetching weather data", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        // Add the request to the queue
+        queue.add(request);
     }
 }
