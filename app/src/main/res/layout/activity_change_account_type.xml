@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <RadioGroup
+        android:id="@+id/radioGroupAccountType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal">
+
+        <RadioButton
+            android:id="@+id/radioWasher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Washer" />
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radioBooker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booker" />
+    </RadioGroup>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveAccountTypeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#1372D9"
+        android:textColor="@color/white"
+        android:text="Save" />
+</LinearLayout>

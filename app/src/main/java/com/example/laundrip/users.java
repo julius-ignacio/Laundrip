@@ -8,19 +8,23 @@ public class users {
     String profile;
     String address;
     String password;
-    Boolean isWasher;
+    String accountType;
 
-
-
-
-
-    public Boolean getWasher() {
-        return isWasher;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setWasher(Boolean washer) {
-        isWasher = washer;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -43,13 +47,13 @@ public class users {
 
 
 
-    public users(String userId, String name, String profile, String address, String password, Boolean isWasher) {
+    public users(String userId, String name, String profile, String address, String password, String accountType) {
         this.userId = userId;
         this.name = name;
         this.profile = profile;
         this.address = address;
         this.password = password;
-        this.isWasher = isWasher;
+        this.accountType = getAccountType();
     }
 
     public users(){}

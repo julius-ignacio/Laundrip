@@ -26,7 +26,7 @@
 
         private FirebaseAuth auth;
         private GoogleSignInClient gsc;
-        private TextView fullNameTextView;
+        private TextView fullNameTextView, accountTypeTextView, addressTextView;
         private Button logoutBtn, changePasswordBtn, changeAddressBtn;
 
         public AccountFragment() {
@@ -55,12 +55,14 @@
             View view = inflater.inflate(R.layout.fragment_account, container, false);
 
             fullNameTextView = view.findViewById(R.id.fullNameTextView);
+            accountTypeTextView = view.findViewById(R.id.accountTypeTextView);
             logoutBtn = view.findViewById(R.id.logoutBtn);
             changePasswordBtn = view.findViewById(R.id.changePasswordBtn);
             changeAddressBtn = view.findViewById(R.id.changeAddressBtn);
+            addressTextView = view.findViewById(R.id.AddressTextView);
 
 
-            TextView addressTextView = view.findViewById(R.id.AddressTextView);
+
             FirebaseUser user = auth.getCurrentUser();
 
             // Display the user's address
@@ -74,6 +76,22 @@
                         addressTextView.setText(address);
                     } else {
                         addressTextView.setText("No address available");
+                    }
+                });
+            } else {
+                addressTextView.setText("Guest");
+            }
+
+            // Display the user's acc type
+            if (user != null) {
+                String userId = user.getUid();
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
+                databaseReference.child(userId).child("accountType").get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult().getValue() != null) {
+                        String type = task.getResult().getValue(String.class);
+                        accountTypeTextView.setText(type);
+                    } else {
+                        accountTypeTextView.setText("No type set");
                     }
                 });
             } else {
@@ -121,13 +139,10 @@
 
         private void signOut() {
             auth.signOut();
-            gsc.signOut().addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
-                }
+            gsc.signOut().addOnCompleteListener(getActivity(), task -> {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
             });
         }
     }

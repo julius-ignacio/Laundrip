@@ -34,6 +34,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
@@ -140,24 +141,32 @@ public class MainActivity extends AppCompatActivity {
     private void auth(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         auth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = auth.getCurrentUser();
-
-                            users users = new users();
-                            users.setUserId(user.getUid());
-                            users.setName(user.getDisplayName());
-                            users.setProfile(user.getPhotoUrl().toString());
-
-                            database.getReference().child("Users").child(user.getUid()).setValue(users);
-
-                            Intent intent = new Intent(MainActivity.this, TypeSelection.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                        }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = auth.getCurrentUser();
+                        database.getReference().child("users").child(user.getUid())
+                                .get()
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        DataSnapshot snapshot = task1.getResult();
+                                        if (snapshot.exists()) {
+                                            String accountType = snapshot.child("accountType").getValue(String.class);
+                                            if (accountType != null) {
+                                                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                                                startActivity(intent);
+                                            } else {
+                                                Intent intent = new Intent(MainActivity.this, TypeSelection.class);
+                                                startActivity(intent);
+                                            }
+                                        } else {
+                                            Toast.makeText(MainActivity.this, "User not found in database.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "Failed to retrieve user data.", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    } else {
+                        Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

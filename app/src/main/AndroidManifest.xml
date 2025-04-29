@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Laundrip"
         tools:targetApi="31">
         <activity
+            android:name=".ChangeAccountType"
+            android:exported="false" />
+        <activity
+            android:name=".ChangeAccounType"
+            android:exported="false" />
+        <activity
             android:name=".TypeSelection"
             android:exported="false" />
         <activity
