@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             Toast.makeText(MainActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
-                            Intent home = new Intent(MainActivity.this, HomeActivity.class);
+                            Intent home = new Intent(MainActivity.this, TypeSelection.class);
                             startActivity(home);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
 
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(MainActivity.this, TypeSelection.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();

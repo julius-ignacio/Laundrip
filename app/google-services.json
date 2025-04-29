@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "303281445730-udv0evu26fpd6h7ca4tv1hiv3p15fkik.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.laundrip",
+            "certificate_hash": "53ddf98d978ec22a69d35f9edfe9a74e2a13a924"
+          }
+        },
+        {
           "client_id": "303281445730-qs28lq278cnslnfds83r62ag40pl9ca6.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
     private TextView temperatureText, weatherDescriptionText;
 
     // OpenWeather API Key (Replace with your API key)
-    private static final String API_KEY = "API HEREEE";
+    private static final String API_KEY = "0698d9d0b4ff8d86273f42965aeb045d";
     // Location for weather data (Replace with desired location)
     private static final String LOCATION = "Guiguinto";
     // OpenWeather API URL
