@@ -27,7 +27,7 @@
         private FirebaseAuth auth;
         private GoogleSignInClient gsc;
         private TextView fullNameTextView, accountTypeTextView, addressTextView;
-        private Button logoutBtn, changePasswordBtn, changeAddressBtn;
+        private Button logoutBtn, changePasswordBtn, changeAddressBtn, changeAccountTypeBtn;
 
         public AccountFragment() {
             // Required empty public constructor
@@ -111,6 +111,15 @@
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), ChangeAddressActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            changeAccountTypeBtn = view.findViewById(R.id.changeAccountTypeBtn);
+            changeAccountTypeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), ChangeAccountType.class);
                     startActivity(intent);
                 }
             });

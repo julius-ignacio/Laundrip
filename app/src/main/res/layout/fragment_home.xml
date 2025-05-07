@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,7 +22,7 @@
             android:text="Today's weather is perfect to wash your clothes!"
             android:gravity="center" />
 
-        <!-- Temperature -->
+        <!-- Current Temperature -->
         <TextView
             android:id="@+id/temperature_text"
             android:layout_width="match_parent"
@@ -33,7 +32,7 @@
             android:text="Temperature: --°C"
             android:gravity="center" />
 
-        <!-- Weather Description -->
+        <!-- Current Weather Description -->
         <TextView
             android:id="@+id/weather_description_text"
             android:layout_width="match_parent"
@@ -41,6 +40,34 @@
             android:layout_marginTop="10dp"
             android:textSize="18sp"
             android:text="Weather: --"
+            android:gravity="center" />
+
+        <!-- Next 3 Days -->
+        <TextView
+            android:id="@+id/day1_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:text="Day 1: --"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/day2_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:text="Day 2: --"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/day3_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:text="Day 3: --"
             android:gravity="center" />
 
     </LinearLayout>

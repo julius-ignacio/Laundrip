@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Laundrip"
         tools:targetApi="31">
         <activity
+            android:name=".WasherBooker"
+            android:exported="false" />
+        <activity
             android:name=".ChangeAccountType"
             android:exported="false" />
         <activity
