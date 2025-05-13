@@ -26,8 +26,8 @@
 
         private FirebaseAuth auth;
         private GoogleSignInClient gsc;
-        private TextView fullNameTextView, accountTypeTextView, addressTextView;
-        private Button logoutBtn, changePasswordBtn, changeAddressBtn, changeAccountTypeBtn;
+        private TextView fullNameTextView,  addressTextView;
+        private Button logoutBtn, changePasswordBtn, changeAddressBtn;
 
         public AccountFragment() {
             // Required empty public constructor
@@ -55,7 +55,7 @@
             View view = inflater.inflate(R.layout.fragment_account, container, false);
 
             fullNameTextView = view.findViewById(R.id.fullNameTextView);
-            accountTypeTextView = view.findViewById(R.id.accountTypeTextView);
+
             logoutBtn = view.findViewById(R.id.logoutBtn);
             changePasswordBtn = view.findViewById(R.id.changePasswordBtn);
             changeAddressBtn = view.findViewById(R.id.changeAddressBtn);
@@ -82,21 +82,6 @@
                 addressTextView.setText("Guest");
             }
 
-            // Display the user's acc type
-            if (user != null) {
-                String userId = user.getUid();
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
-                databaseReference.child(userId).child("accountType").get().addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && task.getResult().getValue() != null) {
-                        String type = task.getResult().getValue(String.class);
-                        accountTypeTextView.setText(type);
-                    } else {
-                        accountTypeTextView.setText("No type set");
-                    }
-                });
-            } else {
-                addressTextView.setText("Guest");
-            }
 
             // Display the user's name
 
@@ -115,14 +100,6 @@
                 }
             });
 
-            changeAccountTypeBtn = view.findViewById(R.id.changeAccountTypeBtn);
-            changeAccountTypeBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), ChangeAccountType.class);
-                    startActivity(intent);
-                }
-            });
 
 
             // Logout button functionality

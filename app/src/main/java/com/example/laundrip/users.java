@@ -8,32 +8,16 @@ public class users {
     String profile;
     String address;
     String password;
-    String accountType;
 
-    public boolean isBooked() {
-        return isBooked;
+    public String getEmail() {
+        return email;
     }
 
-    public void setBooked(boolean booked) {
-        isBooked = booked;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    boolean isBooked;
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
-
-
-
-
-
-
-
-
+    String email;
 
 
 
@@ -56,14 +40,13 @@ public class users {
 
 
 
-    public users(String userId, String name, String profile, String address, String password, String accountType, Boolean isBooked) {
+    public users(String userId, String name, String profile, String address, String password, String email) {
         this.userId = userId;
         this.name = name;
         this.profile = profile;
         this.address = address;
         this.password = password;
-        this.accountType = getAccountType();
-        this.isBooked = isBooked;
+        this.email = email;
     }
 
     public users(){}

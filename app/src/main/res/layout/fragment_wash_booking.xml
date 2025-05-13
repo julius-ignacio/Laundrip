@@ -2,9 +2,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="List of available washers" />
+    <Button
+        android:id="@+id/chatSpecialUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Chat with Special User"
+        android:padding="16dp" />
+
 </FrameLayout>

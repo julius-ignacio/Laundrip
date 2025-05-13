@@ -71,47 +71,49 @@ public class HomeFragment extends Fragment {
             if (task.isSuccessful() && task.getResult().getValue() != null) {
                 location = task.getResult().getValue(String.class); // Use the address as the location
             } else {
-                Toast.makeText(requireContext(), "No address found, using default location.", Toast.LENGTH_SHORT).show();
+                if (isAdded()) {
+                    Toast.makeText(getContext(), "No address found, using default location.", Toast.LENGTH_SHORT).show();
+                }
             }
-            fetchWeatherData(); // Fetch weather data after retrieving the address
+            if (isAdded()) { // Ensure the fragment is attached before proceeding
+                fetchWeatherData();
+            }
         });
     }
 
     private void fetchWeatherData() {
+        if (!isAdded()) return; // Ensure the fragment is attached
         String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=metric&appid=" + API_KEY;
 
         RequestQueue queue = Volley.newRequestQueue(requireContext());
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiUrl, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            // Parse current weather
-                            JSONObject currentWeather = response.getJSONArray("list").getJSONObject(0);
-                            double temperature = currentWeather.getJSONObject("main").getDouble("temp");
-                            String description = currentWeather.getJSONArray("weather").getJSONObject(0).getString("description");
+                response -> {
+                    if (!isAdded()) return; // Ensure the fragment is still attached
+                    try {
+                        // Parse current weather
+                        JSONObject currentWeather = response.getJSONArray("list").getJSONObject(0);
+                        double temperature = currentWeather.getJSONObject("main").getDouble("temp");
+                        String description = currentWeather.getJSONArray("weather").getJSONObject(0).getString("description");
 
-                            temperatureText.setText("Temperature: " + temperature + "°C");
-                            weatherDescriptionText.setText("Weather: " + description);
+                        temperatureText.setText("Temperature: " + temperature + "°C");
+                        weatherDescriptionText.setText("Weather: " + description);
 
-                            // Parse next 3 days
-                            JSONArray list = response.getJSONArray("list");
-                            day1Text.setText(parseDayWeather(list.getJSONObject(8)));  // 24 hours later
-                            day2Text.setText(parseDayWeather(list.getJSONObject(16))); // 48 hours later
-                            day3Text.setText(parseDayWeather(list.getJSONObject(24))); // 72 hours later
+                        // Parse next 3 days
+                        JSONArray list = response.getJSONArray("list");
+                        day1Text.setText(parseDayWeather(list.getJSONObject(8)));  // 24 hours later
+                        day2Text.setText(parseDayWeather(list.getJSONObject(16))); // 48 hours later
+                        day3Text.setText(parseDayWeather(list.getJSONObject(24))); // 72 hours later
 
-                        } catch (JSONException e) {
-                            Log.e("Weather", "JSON Parsing error: " + e.getMessage());
-                            Toast.makeText(requireContext(), "Error parsing weather data", Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        if (isAdded()) {
+                            Toast.makeText(getContext(), "Error parsing weather data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Weather", "Volley error: " + error.getMessage());
-                        Toast.makeText(requireContext(), "Error fetching weather data", Toast.LENGTH_SHORT).show();
+                error -> {
+                    if (isAdded()) {
+                        Toast.makeText(getContext(), "Error fetching weather data", Toast.LENGTH_SHORT).show();
                     }
                 });
 

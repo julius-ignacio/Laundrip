@@ -68,41 +68,40 @@ public class MainActivity extends AppCompatActivity {
         clickhere = findViewById(R.id.Clickhere);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
+                .requestIdToken(getString(R.string.default_web_client_id)) // Ensure this is correctly set in your strings.xml
+                .requestEmail() // Request email
+                .requestProfile() // Request profile information (name, etc.)
                 .build();
 
         gsc = GoogleSignIn.getClient(this, gso);
 
         googlelog.setOnClickListener(view -> gSignIn());
 
-        log.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String user_email = email.getText().toString();
-                String user_pass = password.getText().toString();
+        log.setOnClickListener(view -> {
+            String user_email = email.getText().toString();
+            String user_pass = password.getText().toString();
 
-                if (user_email.isEmpty()) {
-                    email.setError("Email cannot be empty!");
-                } else if (user_pass.isEmpty()) {
-                    password.setError("Password cannot be empty!");
-                } else {
-                    auth.signInWithEmailAndPassword(user_email, user_pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(MainActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
-                            Intent home = new Intent(MainActivity.this, TypeSelection.class);
-                            startActivity(home);
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(MainActivity.this, "Email and Password not found!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
+            if (user_email.isEmpty()) {
+                email.setError("Email cannot be empty!");
+            } else if (user_pass.isEmpty()) {
+                password.setError("Password cannot be empty!");
+            } else {
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                auth.signInWithEmailAndPassword(user_email, user_pass)
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = auth.getCurrentUser();
+                                if (user != null) {
+                                    Toast.makeText(MainActivity.this, "Authenticated as: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                                    // Navigate to HomeActivity or perform other actions
+                                    Intent home = new Intent(MainActivity.this, HomeActivity.class);
+                                    startActivity(home);
+                                }
+                            } else {
+                                Toast.makeText(MainActivity.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
-
         });
 
         clickhere.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 
@@ -131,6 +133,15 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+
+                // Retrieve email and username
+                String email = account.getEmail();
+                String displayName = account.getDisplayName();
+
+                // Log or use the email and username
+                Toast.makeText(this, "Signed in as: " + displayName + " (" + email + ")", Toast.LENGTH_SHORT).show();
+
+                // Authenticate with Firebase
                 auth(account.getIdToken());
             } catch (ApiException e) {
                 Toast.makeText(this, "Google sign-in failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -144,27 +155,18 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
-                        database.getReference().child("users").child(user.getUid())
-                                .get()
-                                .addOnCompleteListener(task1 -> {
-                                    if (task1.isSuccessful()) {
-                                        DataSnapshot snapshot = task1.getResult();
-                                        if (snapshot.exists()) {
-                                            String accountType = snapshot.child("accountType").getValue(String.class);
-                                            if (accountType != null) {
-                                                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                                                startActivity(intent);
-                                            } else {
-                                                Intent intent = new Intent(MainActivity.this, TypeSelection.class);
-                                                startActivity(intent);
-                                            }
-                                        } else {
-                                            Toast.makeText(MainActivity.this, "User not found in database.", Toast.LENGTH_SHORT).show();
-                                        }
-                                    } else {
-                                        Toast.makeText(MainActivity.this, "Failed to retrieve user data.", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                        if (user != null) {
+                            String userEmail = user.getEmail();
+                            if ("tutorly909@gmail.com".equals(userEmail)) {
+                                // Redirect to AgencyChat for the special user
+                                Intent intent = new Intent(MainActivity.this, AgencyChat.class);
+                                startActivity(intent);
+                            } else {
+                                // Redirect to HomeActivity for other users
+                                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                            }
+                        }
                     } else {
                         Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
