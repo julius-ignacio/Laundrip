@@ -10,6 +10,15 @@ public class users {
     String password;
     String accountType;
 
+    public boolean isBooked() {
+        return isBooked;
+    }
+
+    public void setBooked(boolean booked) {
+        isBooked = booked;
+    }
+
+    boolean isBooked;
     public String getAccountType() {
         return accountType;
     }
@@ -47,13 +56,14 @@ public class users {
 
 
 
-    public users(String userId, String name, String profile, String address, String password, String accountType) {
+    public users(String userId, String name, String profile, String address, String password, String accountType, Boolean isBooked) {
         this.userId = userId;
         this.name = name;
         this.profile = profile;
         this.address = address;
         this.password = password;
         this.accountType = getAccountType();
+        this.isBooked = isBooked;
     }
 
     public users(){}
