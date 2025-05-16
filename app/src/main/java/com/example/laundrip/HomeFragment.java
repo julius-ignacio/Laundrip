@@ -1,7 +1,12 @@
 package com.example.laundrip;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
+import static java.security.AccessController.getContext;
+
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,6 +33,10 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class HomeFragment extends Fragment {
@@ -87,10 +102,64 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchWeatherData() {
-        if (!isAdded()) return; // Ensure the fragment is attached
         String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=metric&appid=" + API_KEY;
 
-        // Weather fetching logic (unchanged)
+        RequestQueue queue = Volley.newRequestQueue(requireContext());
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiUrl, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            // Parse current weather
+                            JSONObject currentWeather = response.getJSONArray("list").getJSONObject(0);
+                            double temperature = currentWeather.getJSONObject("main").getDouble("temp");
+                            String description = currentWeather.getJSONArray("weather").getJSONObject(0).getString("description");
+
+                            temperatureText.setText("Temperature: " + temperature + "°C");
+                            weatherDescriptionText.setText("Weather: " + description);
+
+                            // Parse next 3 days
+                            JSONArray list = response.getJSONArray("list");
+                            day1Text.setText(parseDayWeather(list.getJSONObject(8)));  // 24 hours later
+                            day2Text.setText(parseDayWeather(list.getJSONObject(16))); // 48 hours later
+                            day3Text.setText(parseDayWeather(list.getJSONObject(24))); // 72 hours later
+
+                        } catch (JSONException e) {
+                            Log.e("Weather", "JSON Parsing error: " + e.getMessage());
+                            Toast.makeText(requireContext(), "Error parsing weather data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Weather", "Volley error: " + error.getMessage());
+                        Toast.makeText(requireContext(), "Error fetching weather data", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        queue.add(request);
+    }
+
+
+    private String parseDayWeather(JSONObject dayWeather) throws JSONException {
+        String date = dayWeather.getString("dt_txt").split(" ")[0];
+        double temp = dayWeather.getJSONObject("main").getDouble("temp");
+        String description = dayWeather.getJSONArray("weather").getJSONObject(0).getString("description");
+
+        // Convert date to day of the week
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat outputFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
+        String dayOfWeek;
+        try {
+            Date parsedDate = inputFormat.parse(date);
+            dayOfWeek = outputFormat.format(parsedDate);
+        } catch (ParseException e) {
+            dayOfWeek = "Unknown Day"; // Fallback in case of error
+        }
+
+        return dayOfWeek + ": " + temp + "°C, " + description;
     }
 
     private void loadLaundryTips() {
@@ -123,7 +192,7 @@ public class HomeFragment extends Fragment {
                         String tip = tips.getString(random.nextInt(tips.length()));
 
                         // Update UI
-                        laundryTipCategory.setText("Category: " + category);
+                        laundryTipCategory.setText(category);
                         laundryTipText.setText("Tip: " + tip);
                     } catch (JSONException e) {
                         Toast.makeText(getContext(), "Error parsing laundry tips", Toast.LENGTH_SHORT).show();
