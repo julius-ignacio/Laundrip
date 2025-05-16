@@ -70,5 +70,24 @@
             android:text="Day 3: --"
             android:gravity="center" />
 
+
+        <TextView
+            android:id="@+id/laundry_tip_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:text="Category: --"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/laundry_tip_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:text="Tip: --"
+            android:gravity="center" />
+
     </LinearLayout>
 </FrameLayout>
