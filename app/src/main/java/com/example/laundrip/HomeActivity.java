@@ -38,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.Guide) {
                 replaceFragment(new GuideFragment());
             } else if (item.getItemId() == R.id.Chatbot) {
-                replaceFragment(new WashBookingFragment());
+                replaceFragment(new MapFragment());
             } else if (item.getItemId() == R.id.Account) {
                 replaceFragment(new AccountFragment());
             }

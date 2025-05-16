@@ -1,0 +1,85 @@
+{
+  "laundry_tips": [
+    {
+      "category": "Sorting",
+      "tips": [
+        "Always separate whites, colors, and darks to avoid color bleeding.",
+        "Wash delicate fabrics like lace or silk separately on a gentle cycle.",
+        "Sort laundry by fabric type to ensure proper washing and drying temperatures.",
+        "Turn clothes inside out to reduce fading and protect prints during washing.",
+        "Avoid washing lint-shedding fabrics (like towels) with lint-attracting ones (like fleece).",
+        "Use mesh laundry bags for socks and lingerie to prevent tangling or loss."
+      ]
+    },
+    {
+      "category": "Stain Removal",
+      "tips": [
+        "Treat stains as soon as possible for best results.",
+        "Use cold water for blood stains to prevent setting.",
+        "Grease stains respond well to dish soap—apply before washing.",
+        "For ink stains, apply rubbing alcohol and blot gently with a clean cloth.",
+        "White vinegar works well to lift deodorant stains from shirts.",
+        "Apply baking soda paste to tough stains and scrub gently before washing.",
+        "Club soda can help lift fresh stains like wine or coffee in a pinch."
+      ]
+    },
+    {
+      "category": "Drying",
+      "tips": [
+        "Avoid over-drying clothes as it can weaken fibers and cause shrinkage.",
+        "Hang dry delicate or stretchy items to prevent damage.",
+        "Clean your lint trap after every dryer use to improve efficiency and safety.",
+        "Dry towels and heavier items separately from lightweight fabrics for even drying.",
+        "Shake clothes out before putting them in the dryer to reduce wrinkles.",
+        "Line dry clothes outside when possible—sunlight naturally whitens whites.",
+        "Avoid drying clothes in high heat to extend the life of elastic fabrics."
+      ]
+    },
+    {
+      "category": "Eco-Friendly",
+      "tips": [
+        "Wash clothes in cold water to save energy.",
+        "Only run full loads to conserve water and detergent.",
+        "Use natural detergents and avoid fabric softeners with harsh chemicals.",
+        "Use wool dryer balls instead of dryer sheets for a reusable, chemical-free option.",
+        "Install a greywater system to reuse washing machine water for gardens.",
+        "Air dry clothes indoors in winter using a drying rack near a radiator."
+      ]
+    },
+    {
+      "category": "Ironing & Folding",
+      "tips": [
+        "Iron clothes slightly damp for easier wrinkle removal.",
+        "Fold clothes immediately after drying to minimize wrinkles.",
+        "Use a pressing cloth to avoid shine marks on delicate fabrics.",
+        "Hang shirts on hangers straight from the dryer to reduce the need for ironing."
+      ]
+    },
+    {
+      "category": "Washing Machine Care",
+      "tips": [
+        "Clean your washing machine monthly to prevent mold and odor.",
+        "Leave the door open after each wash to let the drum dry out.",
+        "Descale your washing machine with vinegar and baking soda every few months.",
+        "Check and clean the washing machine filter periodically to maintain performance."
+      ]
+    },
+    {
+      "category": "Detergent Usage",
+      "tips": [
+        "Don’t overuse detergent—it can leave residue and wear down fabric.",
+        "Use the right detergent for your washer type (HE or standard).",
+        "Pre-dissolve powdered detergent in water before adding to washer to avoid residue.",
+        "Too much detergent causes excess suds, which can trap dirt and reduce cleaning efficiency."
+      ]
+    },
+    {
+      "category": "Clothing Care",
+      "tips": [
+        "Read and follow care labels to avoid shrinking or damaging clothes.",
+        "Air dry jeans to maintain their shape and prevent fading.",
+        "Wash wool items by hand with cold water to avoid shrinking."
+      ]
+    }
+  ]
+}
