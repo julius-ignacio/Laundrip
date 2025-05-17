@@ -23,15 +23,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBnY192qBHHYi1CwYyfPBHiyMnHGuy33aw" />
 
-        <activity android:name=".ChatActivity" android:exported="false" />
-        <activity android:name=".AgencyChat" android:exported="false" />
-        <activity android:name=".WasherBooker" android:exported="false" />
-        <activity android:name=".ChangeAccountType" android:exported="false" />
-        <activity android:name=".ChangeAccounType" android:exported="false" />
-        <activity android:name=".TypeSelection" android:exported="false" />
-        <activity android:name=".AccountTypeSelection" android:exported="false" />
-        <activity android:name=".ChangePasswordActivity" android:exported="false" />
-        <activity android:name=".ChangeAddressActivity" android:exported="false" />
+        <activity android:name=".ChangePasswordActivity" android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ChangeAddressActivity" android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".SignupActivity" android:exported="false" />
         <activity android:name=".HomeActivity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="true">

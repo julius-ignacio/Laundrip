@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +20,9 @@ public class ChangeAddressActivity extends AppCompatActivity {
     private Button saveAddressButton;
     private DatabaseReference databaseReference;
 
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); // Force light mode
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_address);
 

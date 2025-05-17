@@ -1,10 +1,15 @@
 package com.example.laundrip;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.android.gms.location.LocationServices;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
@@ -35,6 +41,7 @@ public class MapFragment extends Fragment {
     private MapView mapView;
     private FirebaseAuth auth;
     private DatabaseReference databaseReference;
+    private FusedLocationProviderClient fusedLocationClient;
 
     public MapFragment() {
         // Required empty public constructor
@@ -66,11 +73,41 @@ public class MapFragment extends Fragment {
         auth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext());
+
         if (auth.getCurrentUser() != null) {
             listenForAddressChanges();
         } else {
             Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
         }
+
+        zoomToCurrentLocation();
+    }
+
+    private void zoomToCurrentLocation() {
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            return;
+        }
+
+        fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
+            if (location != null) {
+                GeoPoint currentLocation = new GeoPoint(location.getLatitude(), location.getLongitude());
+                mapView.getController().setZoom(15.0);
+                mapView.getController().setCenter(currentLocation);
+
+                mapView.getOverlays().clear(); // Clear existing markers
+                Marker marker = new Marker(mapView);
+                marker.setPosition(currentLocation);
+                marker.setTitle("You are here");
+                mapView.getOverlays().add(marker);
+            } else {
+                Toast.makeText(getContext(), "Unable to fetch current location.", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(getContext(), "Failed to get current location: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void listenForAddressChanges() {
@@ -96,10 +133,9 @@ public class MapFragment extends Fragment {
     private void updateMapLocation(String address) {
         getGeoPointFromAddress(address, point -> {
             if (point != null) {
-                mapView.getController().setZoom(15.0); // Adjusted zoom level
+                mapView.getController().setZoom(15.0);
                 mapView.getController().setCenter(point);
 
-                // Search for nearby laundry shops
                 searchNearbyLaundryShops(point);
             } else {
                 Toast.makeText(getContext(), "Failed to get location for address.", Toast.LENGTH_SHORT).show();
@@ -124,7 +160,6 @@ public class MapFragment extends Fragment {
                             double lon = location.getDouble("lon");
                             String name = location.optString("display_name", "Laundry Shop");
 
-                            // Add marker for each laundry shop
                             Marker marker = new Marker(mapView);
                             marker.setPosition(new GeoPoint(lat, lon));
                             marker.setTitle(name);
@@ -180,7 +215,6 @@ public class MapFragment extends Fragment {
         mapView.onPause();
     }
 
-    // Callback interface for GeoPoint
     private interface GeoPointCallback {
         void onGeoPointReceived(GeoPoint point);
     }
